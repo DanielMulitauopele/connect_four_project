@@ -1,6 +1,6 @@
 require './lib/game_board.rb'
 require './lib/player.rb'
-require './lib/computer.rb'
+# require './lib/computer.rb'
 
 class Round
   def initialize
@@ -12,7 +12,7 @@ class Round
     stable computer genius. Think you can beat me?\n\n"
   end
 
-  def method_name
-
+  def request_move
+    "Your turn! Please choose a row (A-G) to drop your piece!"
   end
 end
