@@ -17,6 +17,7 @@ class RoundTest < MiniTest::Test
 
     assert_equal expected, actual
   end
+  
   def test_that_it_can_receive_a_move_from_a_player
     round = Round.new
     expected = "Your turn! Please choose a row (A-G) to drop your piece!"
