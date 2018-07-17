@@ -9,4 +9,8 @@ class PlayerTest < MiniTest::Test
 
     assert_instance_of Player, player
   end
-end 
+
+  def test_it_starts_with_pieces
+    
+  end
+end
