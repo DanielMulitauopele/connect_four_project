@@ -22,15 +22,11 @@ class GameBoard
     end
   end
 
-  def original_board
+  def print_blank_board
     board_array_joined = board_array_transpose
     final_board = board_array_joined.map do |row|
       row + "\n"
     end
       return final_board.join
-  end
-
-  def add_checker
-
   end
 end
