@@ -8,9 +8,9 @@ class PlayerTest < MiniTest::Test
     player = Player.new
 
     assert_instance_of Player, player
-  end
+  endm
 
   def test_it_starts_with_pieces
-    
+
   end
 end
