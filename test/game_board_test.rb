@@ -35,13 +35,24 @@ class GameBoardTest < MiniTest::Test
 
   def test_it_can_add_new_checkers
     game_board = GameBoard.new
-    new_checker = Checker.new
 
     expected = "ABCDEFG\n.......\n.......\n.......\n.......\n.......\nnew_checker......\n"
     actual = game_board.add_checker(row)
 
     assert_equal expected, actual
   end
+  def test_it_can_add_checker
+
+    game_board = GameBoard.new
+    checker_1 = Checker.new
+    checker_2 = Checker.new
+
+    expected = ".new_checker"
+    actual = game_board.add_checker(row)
+
+    assert_equal expected, actual
+  end
+
   def test_it_can_stack_checkers_on_top_of_each_other
     skip
     game_board = GameBoard.new
@@ -53,6 +64,7 @@ class GameBoardTest < MiniTest::Test
 
     assert_equal expected, actual
   end
+
   def test_it_can_reject_a_checker_in_a_full_column
     skip
     game_board = GameBoard.new
@@ -65,36 +77,6 @@ class GameBoardTest < MiniTest::Test
 
     expected = "ABCDEFG\nchecker_6......\nchecker_5......\nchecker_4......\nchecker_3......\nchecker_2.....\nchecker_1......\n"
     actual = game_board.add_checker(row)
-
-    assert_equal expected, actual
-  end
-  def test_win_condition_after_4_in_a_row
-    skip
-    game_board = GameBoard.new
-
-    assert_equal expected, actual
-  end
-  def test_win_condition_after_4_in_a_column
-    skip
-    game_board = GameBoard.new
-
-    assert_equal expected, actual
-  end
-  def test_win_condition_after_4_diagonal
-    skip
-    game_board = GameBoard.new
-
-    assert_equal expected, actual
-  end
-  def test_it_can_end_in_a_draw
-    skip
-    game_board = GameBoard.new
-
-    assert_equal expected, actual
-  end
-  def test_it_print_board_after_a_turn_completes
-    skip
-    game_board = GameBoard.new
 
     assert_equal expected, actual
   end

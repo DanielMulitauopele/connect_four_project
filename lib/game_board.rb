@@ -30,7 +30,7 @@ class GameBoard
       return final_board.join
   end
 
-  def add_piece
+  def add_checker
 
   end
 end
