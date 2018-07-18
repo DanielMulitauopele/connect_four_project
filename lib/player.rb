@@ -1,5 +1,5 @@
 class Player
-  attr_accessor :piece, :name
+  attr_accessor :piece
 
   def initialize
     @piece = "O"
