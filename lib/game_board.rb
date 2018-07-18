@@ -41,31 +41,27 @@ class GameBoard
     ["A", "B", "C", "D", "E", "F", "G"].include?(column_input)
   end
 
-  def valid_space?(array_index)
-      board[array_index].include?(".")
-  end
-
-  def make_move(column_input)
+  def make_move(column_input, current_player)
     if column_input == "A"
-      @board[0][@a_index] = "X"
+      @board[0][@a_index] = current_player.piece
       @a_index -= 1
     elsif column_input == "B"
-      @board[1][@b_index] = "X"
+      @board[1][@b_index] = current_player.piece
       @b_index -= 1
     elsif column_input == "C"
-      @board[2][@c_index] = "X"
+      @board[2][@c_index] = current_player.piece
       @c_index -= 1
     elsif column_input == "D"
-      @board[3][@d_index] = "X"
+      @board[3][@d_index] = current_player.piece
       @d_index -= 1
     elsif column_input == "E"
-      @board[4][@e_index] = "X"
+      @board[4][@e_index] = current_player.piece
       @e_index -= 1
     elsif column_input == "F"
-      @board[5][@f_index] = "X"
+      @board[5][@f_index] = current_player.piece
       @f_index -= 1
     elsif column_input == "G"
-      @board[6][@g_index] = "X"
+      @board[6][@g_index] = current_player.piece
       @g_index -= 1
     end
   end
