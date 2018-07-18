@@ -1,15 +1,15 @@
 require './lib/game_board.rb'
 require './lib/player.rb'
-# require './lib/computer.rb'
+require './lib/computer.rb'
 
 class Round
-  attr_reader :player, :gameboard
+  attr_reader :player, :gameboard, :computer
 
   def initialize
     @game_over = false
     @player = Player.new
     @gameboard = GameBoard.new
-    # @computer = Computer.new
+    @computer = Computer.new
     @current_player = @player
   end
 

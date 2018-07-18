@@ -1,7 +1,7 @@
-class Player
+class Computer
   attr_accessor :piece
 
   def initialize
-    @piece = "O"
+    @piece = "X"
   end
 end
