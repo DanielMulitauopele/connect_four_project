@@ -47,6 +47,14 @@ class GameBoardTest < MiniTest::Test
 
     assert_equal expected, actual
   end
+  
+  def test_a_space_is_valid
+    game_board = GameBoard.new
+    expected = true
+    actual = game_board.valid_space?(0)
+
+    assert_equal expected, actual
+  end
 
   def test_it_can_make_a_move
     game_board = GameBoard.new
@@ -57,4 +65,5 @@ class GameBoardTest < MiniTest::Test
 
     assert_equal expected, actual
   end
+
 end
