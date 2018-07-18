@@ -33,6 +33,10 @@ class GameBoard
     ["A", "B", "C", "D", "E", "F", "G"].include?(column)
   end
 
+  def valid_space?(array_index)
+      board[array_index].include?(".")
+  end
+
   def make_move(column)
     if column == "A"
       @board[0][6] = "X"
