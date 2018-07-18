@@ -24,6 +24,13 @@ class RoundTest < MiniTest::Test
     assert_instance_of GameBoard, actual
   end
 
+  def test_it_has_a_computer_player
+    round = Round.new
+    actual = round.computer
+
+    assert_instance_of Computer, actual
+  end
+
   def test_that_it_welcomes_player
     round = Round.new
     expected = "Welcome to Connect Four!\n"\
@@ -33,20 +40,19 @@ class RoundTest < MiniTest::Test
     assert_equal expected, actual
   end
 
-  def test_it_asks_for_a_move_from_player
+  def test_it_asks_for_a_move_from_player_to_start
     round = Round.new
-    expected = "\nI'll let you start first. Please choose a row (A-G) to drop your piece!"
-    actual = round.request_move
+    expected = "\nI'll let you start first. Please choose a row (A-G) to drop your piece! "
+    actual = round.first_request_move
 
     assert_equal expected, actual
   end
 
-  def test_that_it_can_receive_a_move_from_a_player
+  def test_it_asks_for_a_move_from_player_during_game
     round = Round.new
-    expected =
-    actual = round.receive_move
+    expected = "\nAlright, your turn. Please choose a row (A-G) to drop your piece! "
+    actual = round.following_request_move
 
     assert_equal expected, actual
   end
-
 end
