@@ -39,8 +39,12 @@ class Round
     "I happen to be a very stable computer genius. Think you can beat me?\n\n"
   end
 
-  def request_move
+  def first_request_move
     "\nI'll let you start first. Please choose a row (A-G) to drop your piece! "
+  end
+
+  def following_request_move
+    "\nAlright, your turn. Please choose a row (A-G) to drop your piece! "
   end
 
   def receive_move
