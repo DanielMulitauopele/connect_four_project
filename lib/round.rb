@@ -14,24 +14,20 @@ class Round
   end
 
   def start
-    # Welcome message
     puts welcome_message
-    # Print board
     while @game_over == false
       puts gameboard.print_board
-    # Request move
       print request_move
-    # recieve move
+
       move = receive_move
       while
         @gameboard.valid_input?(move) == false
         print "I think you might have misheard me. I said A-G please. Try again. "
         move = receive_move
       end
-      @gameboard.make_move(move)
+      @gameboard.make_move(move, @current_player)
       puts @gameboard.print_board
-        # Verify that it was a valid move
-        # Confirm the move, and print the new board
+
         # Switch player to computer
         # Computer makes valid move
         # All this is done alternatively until win condition is met or board is full
