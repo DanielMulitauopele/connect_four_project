@@ -15,10 +15,9 @@ class Round
 
   def start
     puts welcome_message
+    puts gameboard.print_board
+    print first_request_move
     while @game_over == false
-      puts gameboard.print_board
-      print request_move
-
       move = receive_move
       while
         @gameboard.valid_input?(move) == false
@@ -27,10 +26,17 @@ class Round
       end
       @gameboard.make_move(move, @current_player)
       puts @gameboard.print_board
-
-        # Switch player to computer
-        # Computer makes valid move
-        # All this is done alternatively until win condition is met or board is full
+      switch_player
+      puts "Ok, my turn...hmmmmm..."
+      sleep(3)
+      computer_move = @computer.random_column
+      while
+        @gameboard.valid_input?(computer_move) == false
+        computer_move = @computer.random_column
+      end
+      @gameboard.make_move(computer_move, @current_player)
+      puts @gameboard.print_board
+      switch_player
     end
   end
 
