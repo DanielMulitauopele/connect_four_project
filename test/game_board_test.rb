@@ -84,4 +84,12 @@ class GameBoardTest < MiniTest::Test
 
     assert_equal expected_2, actual_2
   end
+
+  def test_player_can_win_horizontally
+    game_board = GameBoard.new
+
+
+    expected = true
+    actual = game_board.player_win?
+  end
 end

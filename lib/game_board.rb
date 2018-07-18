@@ -32,7 +32,7 @@ class GameBoard
 
   def print_board
     final_board = transpose_the_board.map do |row|
-      row + "\n"
+      "\n" + row
     end
     final_board.join
   end
@@ -43,7 +43,7 @@ class GameBoard
     @c_index >= 1 &&
     @d_index >= 1 &&
     @e_index >= 1 &&
-    @f_index >= 1 && 
+    @f_index >= 1 &&
     @g_index >= 1 &&
     ["A", "B", "C", "D", "E", "F", "G"].include?(column_input)
   end

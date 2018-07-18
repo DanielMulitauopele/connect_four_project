@@ -50,7 +50,7 @@ class RoundTest < MiniTest::Test
 
   def test_it_asks_for_a_move_from_player_during_game
     round = Round.new
-    expected = "\nAlright, your turn. Please choose a row (A-G) to drop your piece! "
+    expected = "\nAlright, your turn. "
     actual = round.following_request_move
 
     assert_equal expected, actual
@@ -72,7 +72,7 @@ class RoundTest < MiniTest::Test
     actual = round.current_player
     assert_equal expected, actual
 
-    round.switch_player 
+    round.switch_player
 
     expected_2 = round.computer
     actual_2 = round.current_player
