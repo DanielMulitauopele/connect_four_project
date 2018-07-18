@@ -1,4 +1,4 @@
-require './lib/game_board.rb'
-
-connect_four = GameBoard.new
-puts connect_four.original_board
+require './lib/round.rb'
+require 'pry'
+round = Round.new
+round.start

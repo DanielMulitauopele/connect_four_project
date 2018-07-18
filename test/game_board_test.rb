@@ -15,7 +15,6 @@ class GameBoardTest < MiniTest::Test
   def test_it_can_receive_a_piece_and_print_new_board
     skip
     game_board = GameBoard.new
-
     assert_equal expected, actual
   end
 
@@ -30,10 +29,11 @@ class GameBoardTest < MiniTest::Test
   def test_it_arranges_array_into_board
     game_board = GameBoard.new
     expected = "ABCDEFG\n.......\n.......\n.......\n.......\n.......\n.......\n"
-    assert_equal expected, game_board.original_board
+    assert_equal expected, game_board.print_blank_board
   end
 
   def test_it_can_add_a_checker
+    skip
     game_board = GameBoard.new
 
     expected = "ABCDEFG\n.......\n.......\n.......\n.......\n.......\nX......\n"
