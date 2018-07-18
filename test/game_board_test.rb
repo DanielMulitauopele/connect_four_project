@@ -15,7 +15,6 @@ class GameBoardTest < MiniTest::Test
   def test_it_can_receive_a_piece_and_print_new_board
     skip
     game_board = GameBoard.new
-
     assert_equal expected, actual
   end
 
@@ -30,52 +29,14 @@ class GameBoardTest < MiniTest::Test
   def test_it_arranges_array_into_board
     game_board = GameBoard.new
     expected = "ABCDEFG\n.......\n.......\n.......\n.......\n.......\n.......\n"
-    assert_equal expected, game_board.original_board
+    assert_equal expected, game_board.print_blank_board
   end
 
-  def test_it_can_add_new_checkers
-    game_board = GameBoard.new
-
-    expected = "ABCDEFG\n.......\n.......\n.......\n.......\n.......\nnew_checker......\n"
-    actual = game_board.add_checker(row)
-
-    assert_equal expected, actual
-  end
-  def test_it_can_add_checker
-
-    game_board = GameBoard.new
-    checker_1 = Checker.new
-    checker_2 = Checker.new
-
-    expected = ".new_checker"
-    actual = game_board.add_checker(row)
-
-    assert_equal expected, actual
-  end
-
-  def test_it_can_stack_checkers_on_top_of_each_other
+  def test_it_can_add_a_checker
     skip
     game_board = GameBoard.new
-    checker_1 = Checker.new
-    checker_2 = Checker.new
 
-    expected = "ABCDEFG\n.......\n.......\n.......\n.......\nchecker_2......\nchecker_1......\n"
-    actual = game_board.add_checker(row)
-
-    assert_equal expected, actual
-  end
-
-  def test_it_can_reject_a_checker_in_a_full_column
-    skip
-    game_board = GameBoard.new
-    checker_1 = Checker.new("Red")
-    checker_2 = Checker.new("Black")
-    checker_3 = Checker.new("Red")
-    checker_4 = Checker.new("Black")
-    checker_5 = Checker.new("Red")
-    checker_6 = Checker.new("Black")
-
-    expected = "ABCDEFG\nchecker_6......\nchecker_5......\nchecker_4......\nchecker_3......\nchecker_2.....\nchecker_1......\n"
+    expected = "ABCDEFG\n.......\n.......\n.......\n.......\n.......\nX......\n"
     actual = game_board.add_checker(row)
 
     assert_equal expected, actual

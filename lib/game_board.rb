@@ -2,7 +2,7 @@ class GameBoard
   attr_accessor :board
 
   def initialize
-    @board = original_board
+    @board = print_blank_board
   end
 
   def board_array_transpose
@@ -27,6 +27,8 @@ class GameBoard
     final_board = board_array_joined.map do |row|
       row + "\n"
     end
-      return final_board.join
+    final_board.join
   end
+
+
 end
