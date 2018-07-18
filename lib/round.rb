@@ -3,7 +3,7 @@ require './lib/player.rb'
 require './lib/computer.rb'
 
 class Round
-  attr_reader :player, :gameboard, :computer
+  attr_reader :player, :gameboard, :computer, :current_player
 
   def initialize
     @game_over = false
@@ -49,5 +49,13 @@ class Round
 
   def receive_move
     gets.chomp.upcase
+  end
+
+  def switch_player
+    if @current_player == @player
+      @current_player = @computer
+    else
+      @current_player = @player
+    end
   end
 end

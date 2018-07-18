@@ -55,4 +55,27 @@ class RoundTest < MiniTest::Test
 
     assert_equal expected, actual
   end
+
+  def test_it_starts_with_human_player
+    round = Round.new
+
+    expected = round.player
+    actual = round.current_player
+
+    assert_equal expected, actual
+  end
+
+  def test_it_can_switch_players
+    round = Round.new
+
+    expected = round.player
+    actual = round.current_player
+    assert_equal expected, actual
+
+    round.switch_player 
+
+    expected_2 = round.computer
+    actual_2 = round.current_player
+    assert_equal expected_2, actual_2
+  end
 end
