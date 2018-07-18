@@ -38,6 +38,13 @@ class GameBoard
   end
 
   def valid_input?(column_input)
+    @a_index >= 1 &&
+    @b_index >= 1 &&
+    @c_index >= 1 &&
+    @d_index >= 1 &&
+    @e_index >= 1 &&
+    @f_index >= 1 && 
+    @g_index >= 1 &&
     ["A", "B", "C", "D", "E", "F", "G"].include?(column_input)
   end
 
