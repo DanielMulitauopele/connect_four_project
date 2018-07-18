@@ -24,7 +24,7 @@ class GameBoardTest < MiniTest::Test
       ".......", ".......",
       ".......", ".......",
       ".......", "......."]
-    assert_equal expected, game_board.board_array_transpose
+    assert_equal expected, game_board.transpose_the_board
   end
   def test_it_arranges_array_into_board
     game_board = GameBoard.new
@@ -32,12 +32,28 @@ class GameBoardTest < MiniTest::Test
     assert_equal expected, game_board.print_blank_board
   end
 
-  def test_it_can_add_a_checker
-    skip
+  def test_an_input_is_valid
     game_board = GameBoard.new
+    expected = true
+    actual = game_board.valid_input?("A")
 
-    expected = "ABCDEFG\n.......\n.......\n.......\n.......\n.......\nX......\n"
-    actual = game_board.add_checker(row)
+    assert_equal expected, actual
+  end
+
+  def test_an_input_is_invalid
+    game_board = GameBoard.new
+    expected = false
+    actual = game_board.valid_input?("Z")
+
+    assert_equal expected, actual
+  end
+
+  def test_it_can_make_a_move
+    game_board = GameBoard.new
+    game_board.make_move("A")
+
+    expected = "X"
+    actual = game_board.board[0][6]
 
     assert_equal expected, actual
   end
