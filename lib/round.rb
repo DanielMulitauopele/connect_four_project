@@ -11,16 +11,22 @@ class Round
   end
 
   def start
-      # How do I want the round to work?
-
-      # Welcome message
+    # Welcome message
     puts welcome_message
+    # Print board
     puts gameboard.print_blank_board
-
-      # Ask the player for their name
-        #
-      # Request move
-      # recieve move
+    # Request move
+    print request_move
+    # recieve move
+      while user_input = gets.chomp
+        case user_input
+        when "Quit"
+          puts "See ya!"
+          break
+        else
+          puts user_input
+        end
+      end
       # Verify that it was a valid move
       # Confirm the move, and print the new board
       # Switch player to computer
@@ -30,11 +36,10 @@ class Round
 
   def welcome_message
     "Welcome to Connect Four!\n"\
-    "I happen to be a very stable computer genius.\n"\
-    "Think you can beat me?\n\n"
+    "I happen to be a very stable computer genius. Think you can beat me?\n\n"
   end
 
   def request_move
-    "Your turn! Please choose a row (A-G) to drop your piece!"
+    "\nI'll let you start first. Please choose a row (A-G) to drop your piece! "
   end
 end
