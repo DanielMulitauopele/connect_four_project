@@ -14,15 +14,7 @@ class Round
   end
 
   def start
-    # Opening messages
-    @gameboard = GameBoard.new
-    @current_player = @player
-    @game_over = false
-    puts welcome_message
-    puts gameboard.print_board
-    print first_request_move
-
-    # This begins the loop for turn-taking
+    introduction_segment
     while @game_over == false
         move = receive_move
       while
@@ -66,6 +58,15 @@ class Round
           end
         switch_player
     end
+  end
+
+  def introduction_segment
+    @gameboard = GameBoard.new
+    @current_player = @player
+    @game_over = false
+    puts welcome_message
+    puts gameboard.print_board
+    print first_request_move
   end
 
   def welcome_message
