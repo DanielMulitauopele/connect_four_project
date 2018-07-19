@@ -21,7 +21,7 @@ class GameBoardTest < MiniTest::Test
   end
   def test_it_arranges_array_into_board
     game_board = GameBoard.new
-    expected = "ABCDEFG\n.......\n.......\n.......\n.......\n.......\n.......\n"
+    expected = "\nABCDEFG\n.......\n.......\n.......\n.......\n.......\n......."
     assert_equal expected, game_board.print_board
   end
 
@@ -87,9 +87,31 @@ class GameBoardTest < MiniTest::Test
 
   def test_player_can_win_horizontally
     game_board = GameBoard.new
+    player = Player.new
 
+    game_board.make_move("A", player)
+    game_board.make_move("B", player)
+    game_board.make_move("C", player)
+    game_board.make_move("D", player)
 
     expected = true
-    actual = game_board.player_win?
+    actual = game_board.horizontal_win?
+
+    assert_equal expected, actual
+  end
+
+  def test_player_can_win_vertically
+    game_board = GameBoard.new
+    player = Player.new
+
+    game_board.make_move("C", player)
+    game_board.make_move("C", player)
+    game_board.make_move("C", player)
+    game_board.make_move("C", player)
+
+    expected = true
+    actual = game_board.vertical_win?
+
+    assert_equal expected, actual
   end
 end
