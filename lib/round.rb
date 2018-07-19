@@ -15,6 +15,9 @@ class Round
 
   def start
     # Opening messages
+    @gameboard = GameBoard.new
+    @current_player = @player
+    @game_over = false
     puts welcome_message
     puts gameboard.print_board
     print first_request_move
@@ -22,20 +25,26 @@ class Round
     # This begins the loop for turn-taking
     while @game_over == false
         move = receive_move
-    # This is for the player enters an invalid input
       while
         @gameboard.valid_input?(move) == false
         print "I think you might have misheard me. I said A-G please. Try again. "
         move = receive_move
       end
-    # This is for a valid player move
         @gameboard.make_move(move, @current_player)
         puts @gameboard.print_board
-    # Turn switches over to computer
+          if @gameboard.horizontal_win? == true || @gameboard.vertical_win? == true
+            puts "You win! Lucky I think. Wanna play again? (enter yes)"
+            @game_over = true
+            if gets.chomp == "yes"
+              start
+            else
+              puts "Fine. See ya!"
+              break
+            end
+          end
         switch_player
         puts "\nOk, my turn...hmmmmm..."
         sleep(3)
-    # Computer move
         computer_move = @computer.random_column
       while
         @gameboard.valid_input?(computer_move) == false
@@ -43,15 +52,18 @@ class Round
       end
         @gameboard.make_move(computer_move, @current_player)
         puts @gameboard.print_board
-    # This is where the gameboard should check itself to verify if
-    # win conditions are met.
-        # @gameboard.player_win? == true
-            # Puts "You win! Lucky I think. Wanna play again?"
-            # If user enters yes, run start from the beginning
-            # Else
-            # @game_over = true 
-    # Switches turn back to player
-        puts following_request_move
+          if @gameboard.horizontal_win? == true || @gameboard.vertical_win? == true
+            puts "I win! I'll let you try again if you're nice."
+            @game_over = true
+            puts "Wanna play again? Enter 'yes' to get rekt again."
+            if gets.chomp == "yes"
+              start
+            else
+              puts "Fine. See ya!"
+            end
+          else
+            puts following_request_move
+          end
         switch_player
     end
   end

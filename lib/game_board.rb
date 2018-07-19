@@ -74,7 +74,7 @@ class GameBoard
   end
 
     def horizontal_win?
-      if print_board.include?("OOOO" || "XXXX")
+      if print_board.include?("OOOO") || print_board.include?("XXXX")
         true
       else
         false
@@ -82,7 +82,7 @@ class GameBoard
     end
 
     def vertical_win?
-      if @board.join.include?("OOOO" || "XXXX")
+      if @board.join.include?("XXXX") || @board.join.include?("OOOO")
         true
       else
         false
