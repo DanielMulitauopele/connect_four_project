@@ -31,6 +31,9 @@ class Round
     # This is for a valid player move
         @gameboard.make_move(move, @current_player)
         puts @gameboard.print_board
+
+        if @gameboard.horizontal_win? == true || @gameboard.vertical_win? == true
+          puts "You win! Lucky I think. Wanna play again?"
     # Turn switches over to computer
         switch_player
         puts "\nOk, my turn...hmmmmm..."
@@ -43,15 +46,13 @@ class Round
       end
         @gameboard.make_move(computer_move, @current_player)
         puts @gameboard.print_board
-    # This is where the gameboard should check itself to verify if
-    # win conditions are met.
-        # @gameboard.player_win? == true
-            # Puts "You win! Lucky I think. Wanna play again?"
-            # If user enters yes, run start from the beginning
-            # Else
-            # @game_over = true 
+
+        if @gameboard.horizontal_win? == true || @gameboard.vertical_win? == true
+          puts "I win! I'll let you try again if you're nice."
+        else
+          puts following_request_move
+        end
     # Switches turn back to player
-        puts following_request_move
         switch_player
     end
   end
