@@ -32,7 +32,7 @@ class GameBoard
 
   def print_board
     final_board = transpose_the_board.map do |row|
-      "\n" + row
+     "\n" + row
     end
     final_board.join
   end
@@ -72,4 +72,20 @@ class GameBoard
       @g_index -= 1
     end
   end
+
+    def horizontal_win?
+      if print_board.include?("OOOO" || "XXXX")
+        true
+      else
+        false
+      end
+    end
+
+    def vertical_win?
+      if @board.join.include?("OOOO" || "XXXX")
+        true
+      else
+        false
+      end
+    end
 end

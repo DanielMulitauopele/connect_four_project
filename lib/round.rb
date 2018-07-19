@@ -14,21 +14,28 @@ class Round
   end
 
   def start
+    # Opening messages
     puts welcome_message
     puts gameboard.print_board
     print first_request_move
+
+    # This begins the loop for turn-taking
     while @game_over == false
         move = receive_move
+    # This is for the player enters an invalid input
       while
         @gameboard.valid_input?(move) == false
         print "I think you might have misheard me. I said A-G please. Try again. "
         move = receive_move
       end
+    # This is for a valid player move
         @gameboard.make_move(move, @current_player)
         puts @gameboard.print_board
+    # Turn switches over to computer
         switch_player
         puts "\nOk, my turn...hmmmmm..."
         sleep(3)
+    # Computer move
         computer_move = @computer.random_column
       while
         @gameboard.valid_input?(computer_move) == false
@@ -36,6 +43,14 @@ class Round
       end
         @gameboard.make_move(computer_move, @current_player)
         puts @gameboard.print_board
+    # This is where the gameboard should check itself to verify if
+    # win conditions are met.
+        # @gameboard.player_win? == true
+            # Puts "You win! Lucky I think. Wanna play again?"
+            # If user enters yes, run start from the beginning
+            # Else
+            # @game_over = true 
+    # Switches turn back to player
         puts following_request_move
         switch_player
     end
