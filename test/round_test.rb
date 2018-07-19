@@ -34,7 +34,7 @@ class RoundTest < MiniTest::Test
   def test_that_it_welcomes_player
     round = Round.new
     expected = "Welcome to Connect Four!\n"\
-    "I happen to be a very stable computer genius. Think you can beat me?\n\n"
+    "I happen to be a very stable computer genius. Think you can beat me?\n"
     actual = round.welcome_message
 
     assert_equal expected, actual
