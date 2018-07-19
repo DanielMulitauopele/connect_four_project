@@ -18,7 +18,7 @@ class Round
     while @game_over == false
       normal_player_gameplay
       did_the_player_win
-      break if @game_over == true
+    break if @game_over == true
       switch_player
       normal_computer_gameplay
       did_the_computer_win
